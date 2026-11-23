@@ -25,29 +25,39 @@
 
 ![Stars](https://img.shields.io/github/stars/Aditya-deshmukh-1410/AutoCRM?style=for-the-badge&logo=github)
 ![Forks](https://img.shields.io/github/forks/Aditya-deshmukh-1410/AutoCRM?style=for-the-badge&logo=github)
-![Issues](https://img.shields.io/github/issues/Aditya-deshmukh-1410/AutoCRM?style=for-the-badge&logo=github)
-![Pull Requests](https://img.shields.io/github/issues-pr/Aditya-deshmukh-1410/AutoCRM?style=for-the-badge&logo=github)
+![Last Commit](https://img.shields.io/github/last-commit/Aditya-deshmukh-1410/AutoCRM?style=for-the-badge&logo=github)
+![Contributors](https://img.shields.io/github/contributors/Aditya-deshmukh-1410/AutoCRM?style=for-the-badge&logo=github)
 
 </div>
 
 ---
 
-`Customer → Lead → Vehicle → Test Drive → Sale → Finance/EMI`
+<p align="center">
+  <b>Customer</b> → <b>Lead</b> → <b>Vehicle</b> → <b>Test Drive</b> → <b>Sale</b> → <b>Finance/EMI</b>
+</p>
 
 ---
 
 ## What does it do?
 
-- **Customers & Leads:** record enquiries, track source, interested vehicle and lead stage (New / Contacted / Qualified / Converted / Lost), assign owners, and reach out via WhatsApp
-- **Activities & Follow-ups:** schedule follow-ups and see overdue ones on the dashboard
-- **Inventory:** manage vehicles, photos, inspections, availability and public showroom visibility
-- **Test Drives:** schedule and track test drives against a lead and vehicle
-- **Sales & Finance:** record sales with payment status (Pending / Partial / Paid) and sale status (Confirmed / Cancelled), plus finance/EMI details
-- **Users & Roles:** dealership admins create and manage `ADMIN` and `SALES` users
-- **Audit History:** filterable log of who changed what and when
-- **Website Builder:** each dealership gets a branded public site (hero, about, featured inventory, EMI calculator, footer) with custom colours, typography and logo
-- **Public Showroom & Enquiry:** buyers browse published vehicles and send enquiries straight into the CRM
-- **Platform Control Panel:** `PLATFORM_ADMIN` onboards new dealerships
+## What does it do?
+
+| Module | What it does |
+|---|---|
+| **Customers & Leads** | Record enquiries, track source and interested vehicle, move leads through stages, assign owners, message on WhatsApp |
+| **Activities & Follow-ups** | Schedule follow-ups, see overdue ones on the dashboard |
+| **Inventory** | Manage vehicles, photos, inspections and availability, choose what shows on the public site |
+| **Test Drives** | Schedule and track test drives for a lead and vehicle |
+| **Sales & Finance** | Record sales with payment and sale status, plus finance/EMI details |
+| **Users & Roles** | Admins create and manage `ADMIN` and `SALES` users |
+| **Audit History** | Filterable log of who changed what and when |
+| **Website Builder** | Branded public site with custom colours, fonts, logo and an EMI calculator |
+| **Public Showroom** | Buyers browse published vehicles and send enquiries into the CRM |
+| **Control Panel** | `PLATFORM_ADMIN` onboards new dealerships |
+
+**Lead stages:** `New` → `Contacted` → `Qualified` → `Converted` / `Lost`
+
+**Sale payment status:** `Pending` · `Partial` · `Paid`
 
 ## The real-life problem it solves
 
