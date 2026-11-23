@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="img/logo.png" alt="AutoCRM Logo" width="100" />
+<img src="img/logo.svg" alt="AutoCRM Logo" width="100" />
 
 # AutoCRM
 
@@ -103,6 +103,9 @@ Small dealerships usually run on notebooks, spreadsheets, phone contacts and Wha
 
 ### 11. Public Dealership Website
 ![Public site](img/14.png)
+
+### Java + Spring Boot creation 
+![Project](img/14.png)
 
 ---
 
