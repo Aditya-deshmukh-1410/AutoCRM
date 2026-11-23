@@ -104,9 +104,6 @@ Small dealerships usually run on notebooks, spreadsheets, phone contacts and Wha
 ### 11. Public Dealership Website
 ![Public site](img/14.png)
 
-### Java + Spring Boot creation 
-![Project](img/14.png)
-
 ---
 
 ## Tech Stack
@@ -157,6 +154,9 @@ AutoCRM/
 ```
 
 > Request flow: Spring Security filter (JWT + tenant + role) → Controller (DTO validation) → Service (business rules) → Repository (tenant-scoped) → PostgreSQL.
+
+### Project in IDE
+![Project structure and backend running](img/15.png)
 
 ---
 
