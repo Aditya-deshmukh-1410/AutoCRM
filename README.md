@@ -43,7 +43,7 @@ Small dealerships usually run on notebooks, spreadsheets, phone contacts and Wha
 ## Screenshots
 
 ### 1. Landing page
-![Landing hero](docs/screenshots/01-landing-hero.png)
+![Landing hero](img/01.png)
 ![Why AutoCRM](docs/screenshots/02-landing-why-autocrm.png)
 ![Modules](docs/screenshots/03-landing-modules.png)
 ![Records in view](docs/screenshots/04-landing-records.png)
