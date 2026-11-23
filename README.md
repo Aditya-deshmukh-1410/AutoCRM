@@ -67,16 +67,16 @@ Small dealerships usually run on notebooks, spreadsheets, phone contacts and Wha
 ![Sales](img/10.png)
 
 ### 8. Users & Roles
-![Users and roles](img/11.png)
+![Users and roles](img/12.png)
 
 ### 9. Audit History
-![Audit history](img/12.png)
+![Audit history](img/11.png)
 
 ### 10. Website Builder
 ![Website builder](img/13.png)
 
 ### 11. Public Dealership Website
-![Public site](dimg/14.png)
+![Public site](img/14.png)
 
 ---
 
