@@ -1,14 +1,40 @@
+<div align="center">
+
+<img src="img/logo.png" alt="AutoCRM Logo" width="100" />
+
 # AutoCRM
 
-**A multi-tenant CRM for automobile dealerships, built to manage the full customer-to-sale journey in one place.**
+### *Your All-in-One Dealership CRM Platform*
+
+> A full-stack multi-tenant CRM for automobile dealerships, combining lead tracking, inventory, test drives, sales records and a public showroom website, built for India's automotive retail and real-world use.
+
+<br/>
+
+![Java](https://img.shields.io/badge/Java-Backend-ED8B00?logo=openjdk&logoColor=white)
+![Spring Boot](https://img.shields.io/badge/Spring%20Boot-4.1-6DB33F?logo=springboot&logoColor=white)
+![React](https://img.shields.io/badge/React-Frontend-61DAFB?logo=react&logoColor=black)
+![TypeScript](https://img.shields.io/badge/TypeScript-Typed-3178C6?logo=typescript&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-Build-646CFF?logo=vite&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Database-4169E1?logo=postgresql&logoColor=white)
+![JWT](https://img.shields.io/badge/JWT-Auth-000000?logo=jsonwebtokens&logoColor=white)
+![License](https://img.shields.io/badge/License-MIT-yellow)
+![Status](https://img.shields.io/badge/Status-Active%20Development-orange)
+![PRs](https://img.shields.io/badge/PRs-Welcome-brightgreen)
+
+<br/>
+
+![Stars](https://img.shields.io/github/stars/Aditya-deshmukh-1410/AutoCRM?style=for-the-badge&logo=github)
+![Forks](https://img.shields.io/github/forks/Aditya-deshmukh-1410/AutoCRM?style=for-the-badge&logo=github)
+![Issues](https://img.shields.io/github/issues/Aditya-deshmukh-1410/AutoCRM?style=for-the-badge&logo=github)
+![Pull Requests](https://img.shields.io/github/issues-pr/Aditya-deshmukh-1410/AutoCRM?style=for-the-badge&logo=github)
+
+</div>
+
+---
 
 `Customer → Lead → Vehicle → Test Drive → Sale → Finance/EMI`
 
 ---
-
-## What is AutoCRM?
-
-AutoCRM is a web-based Dealership CRM built for India's automotive retail, especially small and mid-size used-vehicle showrooms. Each dealership gets its own isolated workspace (a *tenant*) on one shared platform, with role-based access for admins and sales staff, and a public showroom website for buyers.
 
 ## What does it do?
 
