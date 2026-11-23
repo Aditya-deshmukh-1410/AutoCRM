@@ -44,39 +44,39 @@ Small dealerships usually run on notebooks, spreadsheets, phone contacts and Wha
 
 ### 1. Landing page
 ![Landing hero](img/01.png)
-![Why AutoCRM](docs/screenshots/02-landing-why-autocrm.png)
-![Modules](docs/screenshots/03-landing-modules.png)
-![Records in view](docs/screenshots/04-landing-records.png)
+![Why AutoCRM](img/02.png)
+![Modules](img/03.png)
+![Records in view](img/04.png)
 
 ### 2. Sign up
-![Sign up](docs/screenshots/05-signup.png)
+![Sign up](img/05.png)
 
 ### 3. Login
-![Login](docs/screenshots/06-login.png)
+![Login](img/06.png)
 
 ### 4. Dashboard
-![Dashboard](docs/screenshots/07-dashboard.png)
+![Dashboard](img/07.png)
 
 ### 5. Leads
-![Leads](docs/screenshots/08-leads.png)
+![Leads](img/08.png)
 
 ### 6. Inventory
-![Inventory](docs/screenshots/09-inventory.png)
+![Inventory](img/09.png)
 
 ### 7. Sales
-![Sales](docs/screenshots/10-sales.png)
+![Sales](img/10.png)
 
 ### 8. Users & Roles
-![Users and roles](docs/screenshots/11-users-roles.png)
+![Users and roles](img/11.png)
 
 ### 9. Audit History
-![Audit history](docs/screenshots/12-audit-history.png)
+![Audit history](img/12.png)
 
 ### 10. Website Builder
-![Website builder](docs/screenshots/13-website-builder.png)
+![Website builder](img/13.png)
 
 ### 11. Public Dealership Website
-![Public site](docs/screenshots/14-public-site.png)
+![Public site](dimg/14.png)
 
 ---
 
