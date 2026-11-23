@@ -40,8 +40,6 @@
 
 ## What does it do?
 
-## What does it do?
-
 | Module | What it does |
 |---|---|
 | **Customers & Leads** | Record enquiries, track source and interested vehicle, move leads through stages, assign owners, message on WhatsApp |
