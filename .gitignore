@@ -1,0 +1,8 @@
+.env
+target/
+.classpath
+.project
+.settings/
+.metadata/
+*.patch
+test-result.txt
