@@ -1,32 +1,173 @@
 # AutoCRM
 
-AutoCRM is the combined dealership CRM and website project. The Spring Boot backend is at the project root; the React frontend is in `Frontend/`.
+**A multi-tenant CRM for automobile dealerships, built to manage the full customer-to-sale journey in one place.**
 
-## Requirements and configuration
+`Customer → Lead → Vehicle → Test Drive → Sale → Finance/EMI`
 
-- Java 17 or newer (use the project Maven wrapper), Node.js/npm, and PostgreSQL.
-- Create a PostgreSQL database named `autocrm` and make sure the local PostgreSQL service is running.
-- Set these variables in the Eclipse Run Configuration's **Environment** tab before starting Spring Boot:
-  - `DB_USERNAME` and `DB_PASSWORD`: PostgreSQL credentials with access to `autocrm`.
-  - `JWT_SECRET`: a private key of at least 32 UTF-8 bytes.
-  - `MAIL_USERNAME` and `MAIL_PASSWORD`: SMTP credentials used by email OTP/password recovery.
-  - `VEHICLE_IMAGE_STORAGE_DIRECTORY` (optional): persistent directory for inventory image files. If omitted, images go to `${user.home}/.autocrm/vehicle-images`.
+---
 
-Spring Boot does not load a root `.env` file automatically. Do not commit real secrets. The schema uses Hibernate `ddl-auto=update`; the added vehicle listing columns are nullable, so existing vehicle records do not need a manual data rewrite.
+## What is AutoCRM?
 
-Back up the PostgreSQL database **and** the vehicle image directory together. PostgreSQL stores image metadata, while the image bytes live in that directory.
+AutoCRM is a web-based Dealership CRM built for India's automotive retail, especially small and mid-size used-vehicle showrooms. Each dealership gets its own isolated workspace (a *tenant*) on one shared platform, with role-based access for admins and sales staff, and a public showroom website for buyers.
 
-## Run during development
+## What does it do?
 
-1. In Eclipse, import this project as an existing Maven project, set the environment variables above in **Run Configurations → Java Application → Environment**, then run `src/main/java/com/autocrm/AutoCrmApplication.java` as a Spring Boot app. The backend listens on port 8080.
-2. Open a terminal in this project's `Frontend/` folder. Run `npm ci` once, then run `npm run dev`.
-3. Open the local Vite address, usually `http://localhost:5173`. Vite forwards `/api` and `/public` requests to the backend on port 8080.
+- **Customers & Leads:** record enquiries, track source, interested vehicle and lead stage (New / Contacted / Qualified / Converted / Lost), assign owners, and reach out via WhatsApp
+- **Activities & Follow-ups:** schedule follow-ups and see overdue ones on the dashboard
+- **Inventory:** manage vehicles, photos, inspections, availability and public showroom visibility
+- **Test Drives:** schedule and track test drives against a lead and vehicle
+- **Sales & Finance:** record sales with payment status (Pending / Partial / Paid) and sale status (Confirmed / Cancelled), plus finance/EMI details
+- **Users & Roles:** dealership admins create and manage `ADMIN` and `SALES` users
+- **Audit History:** filterable log of who changed what and when
+- **Website Builder:** each dealership gets a branded public site (hero, about, featured inventory, EMI calculator, footer) with custom colours, typography and logo
+- **Public Showroom & Enquiry:** buyers browse published vehicles and send enquiries straight into the CRM
+- **Platform Control Panel:** `PLATFORM_ADMIN` onboards new dealerships
 
-## Run as one packaged app
+## The real-life problem it solves
 
-1. In `Frontend/`, run `npm ci` once and `npm run build` whenever the frontend changes.
-2. From the project root, run `mvnw.cmd package` on Windows (or `./mvnw package` on macOS/Linux). Maven copies `Frontend/dist/` into the application so the same app serves the UI and API.
+Small dealerships usually run on notebooks, spreadsheets, phone contacts and WhatsApp chats. That causes:
 
-Use the dealership admin account to open **Website Builder**, save the site, and publish it. A published dealership website is available at `/site/{slug}`. Website contact messages, vehicle enquiries, seller submissions, and test-drive requests are assigned to that dealership; admins can manage seller requests and website activity in **Sell Requests** and **Notifications**.
+| Problem | How AutoCRM solves it |
+|---|---|
+| Customer, vehicle, test-drive and sale info is scattered | One connected workflow with linked records |
+| Follow-ups depend on staff memory | Follow-ups and overdue alerts on the dashboard |
+| No record of which vehicle a customer tested or bought | Test drives and sales tied to customer + vehicle |
+| No traceability of who changed what | Audit History with actor, action, date and record |
+| Anyone can edit anything | JWT login + role-based access (`PLATFORM_ADMIN`, `ADMIN`, `SALES`) |
+| Many dealerships on one platform could leak data | Backend-enforced tenant isolation |
+| Heavy, expensive CRMs don't fit small showrooms | Lightweight modular monolith, low running cost |
+| Buyers can't see stock online | Public showroom + enquiry form feeding the CRM |
 
-The ZIP's separate Supabase setup and credentials are not used. Website data is stored through this project's existing PostgreSQL and tenant-scoped services. Dealership admins manage Website Builder; SALES employees can see notifications and work assigned seller requests. All records remain scoped to the authenticated dealership.
+---
+
+## Screenshots
+
+### 1. Landing page
+![Landing hero](docs/screenshots/01-landing-hero.png)
+![Why AutoCRM](docs/screenshots/02-landing-why-autocrm.png)
+![Modules](docs/screenshots/03-landing-modules.png)
+![Records in view](docs/screenshots/04-landing-records.png)
+
+### 2. Sign up
+![Sign up](docs/screenshots/05-signup.png)
+
+### 3. Login
+![Login](docs/screenshots/06-login.png)
+
+### 4. Dashboard
+![Dashboard](docs/screenshots/07-dashboard.png)
+
+### 5. Leads
+![Leads](docs/screenshots/08-leads.png)
+
+### 6. Inventory
+![Inventory](docs/screenshots/09-inventory.png)
+
+### 7. Sales
+![Sales](docs/screenshots/10-sales.png)
+
+### 8. Users & Roles
+![Users and roles](docs/screenshots/11-users-roles.png)
+
+### 9. Audit History
+![Audit history](docs/screenshots/12-audit-history.png)
+
+### 10. Website Builder
+![Website builder](docs/screenshots/13-website-builder.png)
+
+### 11. Public Dealership Website
+![Public site](docs/screenshots/14-public-site.png)
+
+---
+
+## Tech Stack
+
+**Backend**
+- Java, Spring Boot 4.1
+- Spring Security with JWT authentication
+- Role-based access control (`PLATFORM_ADMIN`, `ADMIN`, `SALES`)
+- Spring Data JPA / Hibernate
+- Jakarta Bean Validation (custom validators)
+- Maven
+
+**Frontend**
+- React + TypeScript
+- Vite
+
+**Database**
+- PostgreSQL (shared database, tenant-scoped rows)
+
+**Architecture**
+- Modular monolith, REST (JSON) APIs
+- Pooled multi-tenancy: tenant resolved from the authenticated user, never from the request body
+
+---
+
+## Project Structure
+
+```
+AutoCRM/
+├── src/
+│   ├── main/
+│   │   ├── java/com/autocrm/
+│   │   │   ├── AutoCrmApplication.java
+│   │   │   ├── validation/          # Custom validators (test drive status, payment status, fuel type)
+│   │   │   └── ...                  # controllers, services, repositories, entities, security
+│   │   └── resources/               # application config
+│   └── test/                        # Backend tests
+├── Frontend/
+│   ├── src/
+│   │   ├── assets/
+│   │   └── components/              # AppLayout, AuthLayout, PageHeader, RequireAuth, ui/ ...
+│   └── dist/                        # Production build
+├── docs/
+│   └── screenshots/                 # README images
+├── pom.xml
+├── mvnw / mvnw.cmd
+└── .env                             # Local config (not committed)
+```
+
+> Request flow: Spring Security filter (JWT + tenant + role) → Controller (DTO validation) → Service (business rules) → Repository (tenant-scoped) → PostgreSQL.
+
+---
+
+## Getting Started
+
+**Prerequisites:** JDK, Node.js, PostgreSQL
+
+```bash
+# 1. Clone
+git clone https://github.com/Aditya-deshmukh-1410/AutoCRM.git
+cd AutoCRM
+
+# 2. Configure environment
+# create a .env with your database URL, username, password and JWT secret
+
+# 3. Build the frontend
+cd Frontend
+npm install
+npm run build
+cd ..
+
+# 4. Run the backend
+./mvnw clean package
+java -jar target/autoCRM-0.0.1-SNAPSHOT.jar
+```
+
+App runs at **http://localhost:8080**
+
+## Roles
+
+| Role | Responsibility |
+|---|---|
+| `PLATFORM_ADMIN` | Onboards and manages dealerships (tenants) via the Control Panel |
+| `ADMIN` | Manages one dealership: users, inventory, settings, showroom publishing |
+| `SALES` | Day-to-day work on customers, leads, activities, test drives and sales |
+
+## Contributing
+
+Contributions are welcome. Fork the repo, create a feature branch, and open a pull request.
+
+## License
+
+Add a license of your choice (e.g. MIT).
